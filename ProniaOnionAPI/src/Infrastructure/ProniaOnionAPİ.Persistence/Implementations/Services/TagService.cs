@@ -52,6 +52,14 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             _repository.Update(_mapper.Map(tagDto,existed));
             await _repository.SaveChangesAsync();
         }
+
+        public async Task SoftDeleteAsync(int id)
+        {
+            Tag tag=await _repository.GetByIdAsync(id);
+            if (tag == null) throw new Exception("Not Found");
+            _repository.SoftDelete(tag);
+            await _repository.SaveChangesAsync();
+        }
         //public async Task DeleteAsync(int id)
         //{
         //    Tag existed = await _repository.GetByIdAsync(id);

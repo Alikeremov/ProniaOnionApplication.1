@@ -15,11 +15,13 @@ namespace ProniaOnionAPİ.Application.Abstractions.Repositories
             bool isDescending = false,
             int skip = 0, int take = 0,
             bool isTracking = false,
+            bool ignoreQuery=false,
             params string[] includes);
         Task<T> GetByIdAsync(int id);
         Task AddAsync(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void SoftDelete(T entity);
         Task SaveChangesAsync();
         bool Cheeck(Expression<Func<T, bool>> expression);
     }

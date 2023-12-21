@@ -23,8 +23,27 @@ namespace ProniaOnionAPİ.Persistence.Contexts
         public DbSet<TagProduct> TagProducts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>().HasQueryFilter(c => c.IsDeleted == false);
+            modelBuilder.Entity<Tag>().HasQueryFilter(c => c.IsDeleted == false);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
+        }
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entities=ChangeTracker.Entries<BaseEntity>();
+            foreach (var data in entities)
+            {
+                switch (data.State)
+                {
+                    case EntityState.Modified:
+                        data.Entity.ModifiedAt = DateTime.Now;
+                        break;
+                    case EntityState.Added:
+                        data.Entity.CreatedAt = DateTime.Now;
+                        break;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

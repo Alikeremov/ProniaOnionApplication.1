@@ -27,6 +27,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
             bool isDescending = false,
             int skip = 0, int take = 0,
             bool isTracking = false,
+            bool ignoreQuery = false,
             params string[] includes)
         {
 
@@ -48,6 +49,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
                     query = query.Include(includes[i]);
                 }
             }
+            if(ignoreQuery) query=query.IgnoreQueryFilters();
             return isTracking ? query : query.AsNoTracking();
         }
 
@@ -71,6 +73,11 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
         {
             _table.Remove(entity);
         }
+        public void SoftDelete(T entity)
+        {
+            entity.IsDeleted = true;
+            Update(entity);
+        }
 
         public async Task SaveChangesAsync()
         {
@@ -82,5 +89,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
             if (_table.Any(expression)) return true;
             return false;
         }
+
+        
     }
 }
