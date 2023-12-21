@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "PhOVmoa++jGU9cvKBz/4yZt13WIsQuDsxwlaNxcAG/e0KXVT7kkivBfsPhr+8SAz9NPFLomRQKg8fsHs9pvzUw==",
+  "dgSpecHash": "24X3vjFuQ27nDcL02sOZtb95o94iH3cDkhEtK7MvQX3SpfPGjwW4RRmF6ds9z01+1oAkmISZWuxVrjSWWlVoSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\source\\repos\\ProniaOnionAPI\\src\\Core\\ProniaOnionAPİ.Application\\ProniaOnionAPİ.Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\user\\Desktop\\API Examples\\ProniaOnionApplication.1\\ProniaOnionAPI\\src\\Core\\ProniaOnionAPİ.Application\\ProniaOnionAPİ.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,38 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using ProniaOnionAPİ.Application.Abstractions.Services;
+using ProniaOnionAPİ.Application.DTOs.CategoryDtos;
+
+namespace ProniaOnionAPİ.API.Controllers
+{
+    [Route("[controller]")]
+    [ApiController]
+    public class CategoriesController : ControllerBase
+    {
+        private readonly ICategoryService _service;
+
+        public CategoriesController(ICategoryService service)
+        {
+            _service = service;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Get(int page=1,int take=3)
+        {
+           
+            return Ok(await _service.GetAllAsync(page, take));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromForm] CategoryCreateDto categorydto)
+        {
+            await _service.Create(categorydto);
+            return StatusCode(StatusCodes.Status201Created);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromForm] CategoryUpdateDto categoryDto)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.Update(categoryDto, id);
+            return NoContent();
+        }
+    }
+}

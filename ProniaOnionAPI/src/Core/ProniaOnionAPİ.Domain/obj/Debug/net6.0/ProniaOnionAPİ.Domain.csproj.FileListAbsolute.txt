@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\bin\Debug\net6.0\ProniaOnionAPİ.Domain.deps.json
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\bin\Debug\net6.0\ProniaOnionAPİ.Domain.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\bin\Debug\net6.0\ProniaOnionAPİ.Domain.pdb
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.AssemblyInfo.cs
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\refint\ProniaOnionAPİ.Domain.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ProniaOnionAPİ.Domain.pdb
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Core\ProniaOnionAPİ.Domain\obj\Debug\net6.0\ref\ProniaOnionAPİ.Domain.dll

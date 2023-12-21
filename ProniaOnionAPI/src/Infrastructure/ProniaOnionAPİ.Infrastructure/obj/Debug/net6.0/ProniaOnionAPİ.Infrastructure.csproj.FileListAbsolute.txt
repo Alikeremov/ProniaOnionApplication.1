@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\bin\Debug\net6.0\ProniaOnionAPİ.Infrastructure.deps.json
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\bin\Debug\net6.0\ProniaOnionAPİ.Infrastructure.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\bin\Debug\net6.0\ProniaOnionAPİ.Infrastructure.pdb
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.AssemblyInfo.cs
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\refint\ProniaOnionAPİ.Infrastructure.dll
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ProniaOnionAPİ.Infrastructure.pdb
+C:\Users\user\Desktop\API Examples\ProniaOnionApplication.1\ProniaOnionAPI\src\Infrastructure\ProniaOnionAPİ.Infrastructure\obj\Debug\net6.0\ref\ProniaOnionAPİ.Infrastructure.dll

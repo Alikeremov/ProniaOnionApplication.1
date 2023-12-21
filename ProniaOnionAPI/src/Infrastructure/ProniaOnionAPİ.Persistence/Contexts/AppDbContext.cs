@@ -3,12 +3,13 @@ using ProniaOnionAPİ.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProniaOnionAPİ.Persistence.Contexts
 {
-    internal class AppDbContext:DbContext
+    public class AppDbContext:DbContext
     {
         public AppDbContext(DbContextOptions options):base(options)
         {
@@ -18,13 +19,11 @@ namespace ProniaOnionAPİ.Persistence.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<TagProduct> TagProducts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().Property(c => c.Name).IsRequired().HasMaxLength(50);
-
-            modelBuilder.Entity<Product>().Property(c => c.Price).IsRequired().HasColumnType("decimal(6,2)");
-            modelBuilder.Entity<Product>().Property(c => c.Description).IsRequired(false).HasColumnType("text");
-            modelBuilder.Entity<Product>().Property(c => c.SKU).IsRequired().HasMaxLength(50);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
     }
