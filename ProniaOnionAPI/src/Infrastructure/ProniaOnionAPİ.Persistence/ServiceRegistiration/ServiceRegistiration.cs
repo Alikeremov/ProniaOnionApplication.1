@@ -23,7 +23,9 @@ namespace ProniaOnionAPİ.Persistence.ServiceRegistiration
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<ITagService, TagService>();
-            
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
             return services;
         }
     }

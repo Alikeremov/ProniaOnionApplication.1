@@ -25,7 +25,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
 
         public async Task<ICollection<CategoryItemDto>> GetAllAsync(int page, int take)
         {
-            ICollection<Category> categories = await _repository.GetAll(skip: (page - 1) * take, take: take).ToListAsync();           
+            ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();           
             return _mapper.Map<ICollection<CategoryItemDto>>(categories);
         }
         //public async Task<GetCategoryDto> GetAsync(int id)
