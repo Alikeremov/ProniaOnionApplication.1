@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProniaOnionAPİ.Application.Abstractions.Repositories;
 using ProniaOnionAPİ.Application.Abstractions.Services;
 using ProniaOnionAPİ.Application.DTOs.CategoryDtos;
+using ProniaOnionAPİ.Application.DTOs.TagDtos;
 using ProniaOnionAPİ.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,13 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();           
             return _mapper.Map<ICollection<CategoryItemDto>>(categories);
         }
-        //public async Task<GetCategoryDto> GetAsync(int id)
-        //{
-        //    Category category = await _repository.GetByIdAsync(id);
-        //    if (category == null) throw new Exception("Not Found");
-        //    return new GetCategoryDto { Id = category.Id, Name = category.Name };
-        //}
+        public async Task<CategoryItemDto> GetAsync(int id)
+        {
+            Category category = await _repository.GetByIdAsync(id);
+            if (category == null) throw new Exception("Not Found");
+
+            return _mapper.Map<CategoryItemDto>(category);
+        }
         public async Task Create(CategoryCreateDto dto)
         {
             if (await _repository.Cheeck(x => x.Name == dto.Name)) throw new Exception("Bad Request");        
@@ -59,7 +61,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         }
         public async Task ReverseDelete(int id)
         {
-            Category category = await _repository.GetByIdAsync(id,true);
+            Category category = await _repository.GetByIdAsync(id,true,ignoreQuery: true);
             if (category == null) throw new Exception("Not Found");
             _repository.ReverseDelete(category);
             await _repository.SaveChangesAsync();

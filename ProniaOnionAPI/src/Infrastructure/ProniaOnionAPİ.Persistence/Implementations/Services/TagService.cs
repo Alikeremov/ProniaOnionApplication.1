@@ -28,7 +28,13 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             ICollection<Tag> tags = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
             return _mapper.Map<ICollection<TagItemDto>>(tags);
         }
+        public async Task<TagItemDto> GetAsync(int id)
+        {
+            Tag tag = await _repository.GetByIdAsync(id);
+            if (tag == null) throw new Exception("Not Found");
 
+            return _mapper.Map<TagItemDto>(tag);
+        }
         public async Task Create(TagCreateDto tagDto)
         {
             if (await _repository.Cheeck(x => x.Name == tagDto.Name)) throw new Exception("Bad Request");
@@ -56,7 +62,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         }
         public async Task ReverseDelete(int id)
         {
-            Tag tag = await _repository.GetByIdAsync(id, true);
+            Tag tag = await _repository.GetByIdAsync(id, true,ignoreQuery: true);
             if (tag == null) throw new Exception("Not Found");
             _repository.ReverseDelete(tag);
             await _repository.SaveChangesAsync();
@@ -68,18 +74,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             _repository.Delete(tag);
             await _repository.SaveChangesAsync();
         }
-        //public async Task<GetTagDto> GetAsync(int id)
-        //{
-        //    Tag tag = await _repository.GetByIdAsync(id);
-        //    if (tag == null) throw new Exception("Not Found");
-        //    return new GetTagDto { Id = tag.Id, Name = tag.Name };
-        //}
-        //public async Task DeleteAsync(int id)
-        //{
-        //    Tag existed = await _repository.GetByIdAsync(id);
-        //    if (existed == null) throw new Exception("Not Found");
-        //    _repository.Delete(existed);
-        //    await _repository.SaveChangesAsync();
-        //}
+        
+        
     }
 }

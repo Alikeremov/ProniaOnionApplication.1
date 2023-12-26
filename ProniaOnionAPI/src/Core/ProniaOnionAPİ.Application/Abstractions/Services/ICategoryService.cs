@@ -10,6 +10,7 @@ namespace ProniaOnionAPİ.Application.Abstractions.Services
     public interface ICategoryService
     {
         Task<ICollection<CategoryItemDto>> GetAllAsync(int page, int take);
+        Task<CategoryItemDto> GetAsync(int id);
         Task Create(CategoryCreateDto categoryDto);
         Task Update(CategoryUpdateDto categoryDto, int id);
         Task SoftDeleteAsync(int id);

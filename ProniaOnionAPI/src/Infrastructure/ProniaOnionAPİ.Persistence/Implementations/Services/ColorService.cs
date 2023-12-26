@@ -28,6 +28,13 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             ICollection<Color> colors = await _repository.GetAllWhere(skip: (page - 1) * take, take: take).ToListAsync();
             return _mapper.Map<ICollection<ColorItemDto>>(colors);
         }
+        public async Task<ColorItemDto> GetAsync(int id)
+        {
+            Color color = await _repository.GetByIdAsync(id);
+            if (color == null) throw new Exception("Not Found");
+
+            return _mapper.Map<ColorItemDto>(color);
+        }
 
         public async Task Create(ColorCreateDto colordto)
         {
@@ -56,7 +63,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         }
         public async Task ReverseDelete(int id)
         {
-            Color color = await _repository.GetByIdAsync(id, true);
+            Color color = await _repository.GetByIdAsync(id, true,ignoreQuery: true);
             if (color == null) throw new Exception("Not Found");
             _repository.ReverseDelete(color);
             await _repository.SaveChangesAsync();

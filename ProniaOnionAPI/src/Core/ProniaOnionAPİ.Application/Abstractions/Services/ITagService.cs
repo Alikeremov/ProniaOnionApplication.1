@@ -1,4 +1,5 @@
 ﻿
+using ProniaOnionAPİ.Application.DTOs.CategoryDtos;
 using ProniaOnionAPİ.Application.DTOs.TagDtos;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ProniaOnionAPİ.Application.Abstractions.Services
     public interface ITagService
     {
         Task<ICollection<TagItemDto>> GetAllAsync(int page, int take);
+        Task<TagItemDto> GetAsync(int id);
         Task Create(TagCreateDto categoryDto);
         Task Update(TagUpdateDto categoryDto, int id);
         Task SoftDeleteAsync(int id);

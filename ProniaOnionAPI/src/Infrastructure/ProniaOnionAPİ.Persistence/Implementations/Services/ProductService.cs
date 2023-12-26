@@ -102,15 +102,41 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         }
         public async Task SoftDelete(int id)
         {
-            Product product = await _repository.GetByIdAsync(id, true);
+            Product product = await _repository.GetByIdAsync(id, true, includes: new string[] { nameof(Product.ProductColors), nameof(Product.TagProducts) });
             if (product == null) throw new Exception("Not Found");
+            product.ProductColors=product.ProductColors.Where(x => x.ProductId == id).ToList();
+            if(product.ProductColors!=null)
+            {
+                foreach (ProductColor color in product.ProductColors)
+                {
+                    color.IsDeleted = true;
+                }
+            }
+            product.TagProducts=product.TagProducts.Where(x => x.TagId == id).ToList();
+            foreach (var tag in product.TagProducts)
+            {
+                tag.IsDeleted = true;
+            }
             _repository.SoftDelete(product);
             await _repository.SaveChangesAsync();
         }
         public async Task ReverseDelete(int id)
         {
-            Product product = await _repository.GetByIdAsync(id, true);
+            Product product = await _repository.GetByIdAsync(id, true,ignoreQuery:true, includes: new string[] { nameof(Product.ProductColors), nameof(Product.TagProducts) });
             if (product == null) throw new Exception("Not Found");
+            product.ProductColors = product.ProductColors.Where(x => x.ProductId == id).ToList();
+            if (product.ProductColors != null)
+            {
+                foreach (ProductColor color in product.ProductColors)
+                {
+                    color.IsDeleted = false;
+                }
+            }
+            product.TagProducts = product.TagProducts.Where(x => x.TagId == id).ToList();
+            foreach (var tag in product.TagProducts)
+            {
+                tag.IsDeleted = false;
+            }
             _repository.ReverseDelete(product);
             await _repository.SaveChangesAsync();
         }
