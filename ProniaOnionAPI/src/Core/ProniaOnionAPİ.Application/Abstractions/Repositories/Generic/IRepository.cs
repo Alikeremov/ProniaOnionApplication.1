@@ -26,6 +26,6 @@ namespace ProniaOnionAPİ.Application.Abstractions.Repositories
         void SoftDelete(T entity);
         void ReverseDelete(T entity);
         Task SaveChangesAsync();
-        bool Cheeck(Expression<Func<T, bool>> expression);
+        Task<bool> Cheeck(Expression<Func<T, bool>> expression);
     }
 }

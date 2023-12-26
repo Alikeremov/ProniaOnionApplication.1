@@ -53,7 +53,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.Color", b =>
@@ -87,7 +87,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Colors");
+                    b.ToTable("Colors", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.Product", b =>
@@ -134,7 +134,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.ProductColor", b =>
@@ -170,7 +170,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductColors");
+                    b.ToTable("ProductColors", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.Tag", b =>
@@ -204,7 +204,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.TagProduct", b =>
@@ -240,7 +240,7 @@ namespace ProniaOnionAPİ.Persistence.Contexts.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("TagProducts");
+                    b.ToTable("TagProducts", (string)null);
                 });
 
             modelBuilder.Entity("ProniaOnionAPİ.Domain.Entities.Product", b =>

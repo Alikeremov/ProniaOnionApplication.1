@@ -13,7 +13,7 @@ namespace ProniaOnionAPİ.Domain.Entities
         public string? Description { get; set; }
         //Relational Properties
         public int CategoryId { get; set; }
-        public Category Category { get; set; }=null!;
+        public Category? Category { get; set; }
         public ICollection<ProductColor>? ProductColors { get; set; }
         public ICollection<TagProduct>? TagProducts { get; set; }
     }

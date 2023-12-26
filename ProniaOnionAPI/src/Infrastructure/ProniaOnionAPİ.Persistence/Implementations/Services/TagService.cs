@@ -29,15 +29,9 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             return _mapper.Map<ICollection<TagItemDto>>(tags);
         }
 
-        //public async Task<GetTagDto> GetAsync(int id)
-        //{
-        //    Tag tag = await _repository.GetByIdAsync(id);
-        //    if (tag == null) throw new Exception("Not Found");
-        //    return new GetTagDto { Id = tag.Id, Name = tag.Name };
-        //}
         public async Task Create(TagCreateDto tagDto)
         {
-            if (_repository.Cheeck(x => x.Name == tagDto.Name)) throw new Exception("Bad Request");
+            if (await _repository.Cheeck(x => x.Name == tagDto.Name)) throw new Exception("Bad Request");
             await _repository.AddAsync(_mapper.Map<Tag>(tagDto));
             await _repository.SaveChangesAsync();
         }
@@ -47,7 +41,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         {
             Tag existed = await _repository.GetByIdAsync(id);
             if (existed == null) throw new Exception("Not Found");
-            if (_repository.Cheeck(x => x.Name == tagDto.Name)) throw new Exception("Bad Request");
+            if (await _repository.Cheeck(x => x.Name == tagDto.Name)) throw new Exception("Bad Request");
             
             _repository.Update(_mapper.Map(tagDto,existed));
             await _repository.SaveChangesAsync();
@@ -60,6 +54,26 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
             _repository.SoftDelete(tag);
             await _repository.SaveChangesAsync();
         }
+        public async Task ReverseDelete(int id)
+        {
+            Tag tag = await _repository.GetByIdAsync(id, true);
+            if (tag == null) throw new Exception("Not Found");
+            _repository.ReverseDelete(tag);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task Delete(int id)
+        {
+            Tag tag = await _repository.GetByIdAsync(id);
+            if (tag == null) throw new Exception("Not Found");
+            _repository.Delete(tag);
+            await _repository.SaveChangesAsync();
+        }
+        //public async Task<GetTagDto> GetAsync(int id)
+        //{
+        //    Tag tag = await _repository.GetByIdAsync(id);
+        //    if (tag == null) throw new Exception("Not Found");
+        //    return new GetTagDto { Id = tag.Id, Name = tag.Name };
+        //}
         //public async Task DeleteAsync(int id)
         //{
         //    Tag existed = await _repository.GetByIdAsync(id);

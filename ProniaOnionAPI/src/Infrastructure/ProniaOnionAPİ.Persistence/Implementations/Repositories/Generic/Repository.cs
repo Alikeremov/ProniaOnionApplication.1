@@ -101,9 +101,9 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
             await _context.SaveChangesAsync();
         }
 
-        public bool Cheeck(Expression<Func<T, bool>> expression)
+        public async Task<bool> Cheeck(Expression<Func<T, bool>> expression)
         {
-            if (_table.Any(expression)) return true;
+            if (await _table.AnyAsync(expression)) return true;
             return false;
         }
         private IQueryable<T> _addIncludes(IQueryable<T> query,params string[] includes)

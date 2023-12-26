@@ -36,7 +36,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         //}
         public async Task Create(CategoryCreateDto dto)
         {
-            if (_repository.Cheeck(x => x.Name == dto.Name)) throw new Exception("Bad Request");        
+            if (await _repository.Cheeck(x => x.Name == dto.Name)) throw new Exception("Bad Request");        
             await _repository.AddAsync(_mapper.Map<Category>(dto));
             await _repository.SaveChangesAsync();
         }
@@ -45,16 +45,30 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Services
         {
             Category existed = await _repository.GetByIdAsync(id);
             if (existed == null) throw new Exception("Not Found");
-            if (_repository.Cheeck(x => x.Name == categoryDto.Name)) throw new Exception("Bad Request");
+            if (await _repository.Cheeck(x => x.Name == categoryDto.Name)) throw new Exception("Bad Request");
             _repository.Update(_mapper.Map(categoryDto, existed));
             await _repository.SaveChangesAsync();
         }
 
         public async Task SoftDeleteAsync(int id)
         {
-            Category category = await _repository.GetByIdAsync(id);
+            Category category = await _repository.GetByIdAsync(id,true);
             if (category == null) throw new Exception("Not Found");
             _repository.SoftDelete(category);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task ReverseDelete(int id)
+        {
+            Category category = await _repository.GetByIdAsync(id,true);
+            if (category == null) throw new Exception("Not Found");
+            _repository.ReverseDelete(category);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task Delete(int id)
+        {
+            Category category = await _repository.GetByIdAsync(id);
+            if (category == null) throw new Exception("Not Found");
+            _repository.Delete(category);
             await _repository.SaveChangesAsync();
         }
 

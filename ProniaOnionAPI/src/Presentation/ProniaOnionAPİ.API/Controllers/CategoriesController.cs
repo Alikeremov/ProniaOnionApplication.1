@@ -5,7 +5,7 @@ using ProniaOnionAPİ.Application.DTOs.CategoryDtos;
 
 namespace ProniaOnionAPİ.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -34,12 +34,29 @@ namespace ProniaOnionAPİ.API.Controllers
             await _service.Update(categoryDto, id);
             return NoContent();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+            await _service.Delete(id);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> SoftDelete(int id)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+
             await _service.SoftDeleteAsync(id);
             return StatusCode(StatusCodes.Status204NoContent);
         }
+        [HttpPatch("recovery/{id}")]
+        public async Task<IActionResult> Recovery(int id)
+        {
+            if (id <= 0) return StatusCode(StatusCodes.Status400BadRequest);
+
+            await _service.ReverseDelete(id);
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
+        
     }
 }
