@@ -1,4 +1,5 @@
-﻿using ProniaOnionAPİ.Application.DTOs.User;
+﻿using ProniaOnionAPİ.Application.DTOs.Tokens;
+using ProniaOnionAPİ.Application.DTOs.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace ProniaOnionAPİ.Application.Abstractions.Services
     public interface IAutenticationService
     {
         Task Register(RegisterDto registerDto);
-        Task Login(LoginDto loginDto);
+        Task<TokenResponseDto> Login(LoginDto loginDto);
     }
 }
