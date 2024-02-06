@@ -19,7 +19,7 @@ namespace ProniaOnionAPİ.Persistence.Implementations.Repositories.Generic
         public Repository(AppDbContext context)
         {
             _context = context;
-            _table = context.Set<T>();
+            _table = context.Set<T>(); 
         }
         public IQueryable<T> GetAll(bool ignoreQuery = false, bool isTracking = false, params string[] includes)
         {
